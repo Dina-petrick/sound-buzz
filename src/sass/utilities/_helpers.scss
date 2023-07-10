@@ -1,0 +1,144 @@
+@use "../abstracts/" as *;
+
+
+.text-center{
+    text-align: center;
+}
+
+// display properties 
+
+.block{
+    display: block;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+//flex 
+
+$justify-value: flex-start, flex-end, center, space-between, space-around;
+$align-value: flex-start, flex-end, center;
+
+.d-flex{
+    display: flex;
+}
+
+@each $val in $align-value{
+    .align-#{$val}{
+        justify-content: $val;
+    }
+}
+
+@each $val in $justify-value{
+    .justify-#{$val}{
+        justify-content: $val;
+    }
+}
+
+// font-size 
+
+@each $size-name, $size-value in $font-sizes{
+    .#{$size-name}{
+            font-size: $size-value;
+        }
+}
+
+// margin, padding and gap
+
+.mx-auto{
+    margin-inline: auto;
+}
+
+@each $size-name, $size-value in $sizes {
+    .m{
+        &-#{$size-name}{
+            margin: $size-value;
+        }
+    }
+    
+    .mt{
+        &-#{$size-name}{
+            margin-top: $size-value;
+        }
+    }
+    
+    .mb{
+        &-#{$size-name}{
+            margin-bottom: $size-value;
+        }
+    }
+    
+    .ml{
+        &-#{$size-name}{
+            margin-left: $size-value;
+        }
+    }
+
+    .mr{
+        &-#{$size-name}{
+            margin-right: $size-value;
+        }
+    }
+    
+    .mx{
+        &-#{$size-name}{
+            margin-inline: $size-value;
+        }
+    }
+    
+    .my{
+        &-#{$size-name}{
+            margin-block: $size-value;
+        }
+    }
+
+
+    .p{
+        &-#{$size-name}{
+            padding: $size-value;
+        }
+    }
+    
+    .pt{
+        &-#{$size-name}{
+            padding-top: $size-value;
+        }
+    }
+    
+    .pb{
+        &-#{$size-name}{
+            padding-bottom: $size-value;
+        }
+    }
+    
+    .pl{
+        &-#{$size-name}{
+            padding-left: $size-value;
+        }
+    }
+
+    .pr{
+        &-#{$size-name}{
+            padding-right: $size-value;
+        }
+    }
+    
+    .px{
+        &-#{$size-name}{
+            padding-inline: $size-value;
+        }
+    }
+    
+    .py{
+        &-#{$size-name}{
+            padding-block: $size-value;
+        }
+    }
+
+    .gap{
+        &-#{$size-name}{
+            gap: $size-value;
+        }
+    }
+}
