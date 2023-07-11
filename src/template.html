@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/4a8b36647d.js" crossorigin="anonymous"></script>
     <title>Sound Buzz</title>
-    
 </head>
-<body>    
+
+<body>
+    <div class="d-flex">
+        <header class="p-32">
+            <a href="javasript:void(0)" class="block">
+                <img class="mx-auto" src="./assets/images/logo-soundbuzz.png" alt="sound-buzz-logo">
+            </a>
+            <div class="search-bar relative mt-24 mb-12 text-light-gray">
+                <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
+                <input  class="search-bar-input pl-32 pr-12 py-8 bg-white" type="text" placeholder="Explorer">
+            </div>
+
+            <aside class="sidebar pb-24">
+                    <div class="user-profile text-center mt-12">
+                        <img class="user-profile-picture mx-auto" src="./assets/images/profile-picture.jpg" alt="user-profile-picture">
+                        <span class="user-profile-name block fs-20 fw-500">Daniel Harbin</span>
+                        <a href="javasript:void(0)" class="block fs-14 user-profile-detail text-primary-color">My Profile <i class="fa-solid fa-angle-down fs-12"></i></a>
+                    </div>
+                    <ul class="user-profile-stats mt-24 d-flex text-center">
+                        <li class="profile-stats-item">
+                            <span class="lh-1.2 block profile-stats-count">535</span>
+                            <a href="javasript:void(0)" class="profile-stats-label text-primary-color fs-14">views</a>
+                        </li>
+                        <li class="profile-stats-item">
+                            
+                            <span class="lh-1.2 block profile-stats-count">335</span>
+                            <a href="javasript:void(0)" class="profile-stats-label text-primary-color fs-14">likes</a>
+                        </li>
+                        <li class="profile-stats-item">
+                            <span class="lh-1.2 block profile-stats-count">200</span>
+                            <a href="javasript:void(0)" class="profile-stats-label text-primary-color fs-14">shares</a>
+                        </li>
+                    </ul>
+    
+                    <div class="mt-24">
+                        <h3 class="soundbuzz-title text-primary-color fw-600 fs-18">Soundbuzz music</h3>
+                        <ul class="text-light-gray">
+                            <li class="mt-12 soundbuzz-item">
+                                <a href="javasript:void(0)"><i class="fa-solid fa-music mr-8 fs-14"></i>Library</a>
+                            </li>
+                            <li class="mt-12 soundbuzz-item">
+                                <a href="javasript:void(0)"><i class="fa-regular fa-bookmark mr-8 fs-14"></i>Playlists</a>
+                            </li>
+                            <li class="mt-12 soundbuzz-item">
+                                <a href="javasript:void(0)"><i class="fa-regular fa-user mr-8 fs-14"></i>Artist</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="mt-24">
+                        <h3 class="soundbuzz-title text-primary-color fw-600 fs-18">Soundbuzz studio</h3>
+                        <ul class="text-light-gray">
+                            <li class="mt-12 soundbuzz-item">
+                                <a href="javasript:void(0)"><i class="fa-regular fa-heart mr-8 fs-14"></i>Favorites</a>
+                            </li>
+                            <li class="mt-12 soundbuzz-item">
+                                <a href="javasript:void(0)"><i class="fa-solid fa-compact-disc mr-8 fs-14"></i>Album</a>
+                            </li>
+                        </ul>
+                    </div>    
+            </aside>
+        </header>
+    </div>
 </body>
+
 </html>
