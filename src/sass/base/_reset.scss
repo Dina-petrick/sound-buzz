@@ -1,0 +1,47 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+    font: inherit;
+}
+
+article, details, figcaption, figure, footer, main, menu, nav, img, section {
+    display: block;
+}
+
+a, article, b, blockquote, body, center, cite, code, details, div, fieldset,
+figcaption, figure, footer, form, h1, h2, h3, h4, header, html, i, iframe,
+img, label, li, main, menu, nav, object, ol, p, s, section, span, strong, sub,
+table, tbody, td, th, thead, time, tr, tt, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1.5;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+img {
+    max-width: 100%;
+}
+
+input{
+    background-color: none;
+}
