@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -45,20 +46,17 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "css/style.css"
         }),
-        {
-            apply: (compiler) => {
-                compiler.hooks.afterEmit.tapPromise('ConvertImagesToWebP', async () => {
-                    const { default: imagemin } = await import('imagemin');
-                    const { default: imageminWebp } = await import('imagemin-webp');
-
-                    const imagesPath = path.resolve(__dirname, 'src/images');
-                    const outputOptions = {
-                        destination: imagesPath,
-                        plugins: [imageminWebp({ quality: 60 })],
-                    };
-                        await imagemin(['src/images/*.{jpg,png}'], outputOptions);
-                });
-            },
-        },
+        new ImageminWebpWebpackPlugin({
+            config: [{
+                test: /\.(png|jpe?g)$/,
+                options: {
+                    quality: 75
+                }
+            }],
+            overrideExtension: true,
+            detailedLogs: false,
+            silent: false,
+            strict: true
+        }),
     ]
 };
