@@ -1,0 +1,63 @@
+@use "../abstracts/" as *;
+@use "../components/" as *;
+
+main {
+    flex-basis: 80%;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-container {
+    height: 100vh;
+    padding-bottom: 102px;
+    @extend %scroll-horizontal;
+}
+
+.artist-card{
+    @extend .artist-card;
+}
+
+
+.playlist-card {
+    @extend .playlist-card;
+}
+
+.recent-playlist {
+    @extend .recent-playlist;
+}
+
+.artist {
+
+    &-list {
+        @extend %scroll-horizontal;
+        white-space: nowrap;
+        padding-bottom: size(10);
+        margin-top: size(24);
+    }
+
+    &-item {
+        display: inline-block;
+        border-radius: size(20);
+        margin-right: size(20);
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &-img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &-name {
+        display: block;
+        margin-top: size(16);
+        text-align: center;
+    }
+}
+
+.music-player{
+    @extend .music-player;
+}
