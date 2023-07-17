@@ -15,12 +15,16 @@ header{
     &-input{
         border: none;
         border-radius: 4px;
+
+        &:focus{
+            outline: 1px solid color("primary-color");
+        }
     }
 }
 
 .sidebar{
     height: calc(100vh - 151px);
-    @extend %scroll;
+    @extend %scroll-vertical;
 }
 
 .user-profile{
