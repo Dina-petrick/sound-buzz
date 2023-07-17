@@ -5,3 +5,11 @@
 @function fs($font-size){
     @return map-get($font-sizes, $font-size)
 }
+
+@function fw($font-weight){
+    @return map-get($font-weights, $font-weight)
+}
+
+@function color($color){
+    @return map-get($colors, $color)
+}
