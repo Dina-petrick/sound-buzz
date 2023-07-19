@@ -1,4 +1,4 @@
-@use "scroll-horizontal";
+@use "scroll";
 @use "../abstracts/" as *;
 
 .artist-card {
@@ -37,16 +37,19 @@
 
     &-details {
         position: absolute;
-        bottom: 10px;
+        bottom: 30px;
         left: 20px;
         color: color("white");
     }
 
     &-stats {
-        @include position(absolute, $top: -10px, $left: -10px);
+        width: 40px;
+        height: 40px;
+        @include position(absolute, $top: -6px, $left: -6px);
         background-color: color("white");
-        padding: size(16);
         border-radius: 50%;
+        line-height: 40px;
+        text-align: center;
     }
 
     &-star-btn {
