@@ -13,3 +13,7 @@
 @function color($color){
     @return map-get($colors, $color)
 }
+
+@function size($size){
+    @return map-get($sizes, $size);
+}
