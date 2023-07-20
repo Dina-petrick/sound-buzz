@@ -6,6 +6,11 @@ header{
     flex-basis: 20%;
 }
 
+
+%pointer-event{
+    pointer-events: none;
+}
+
 .search-bar{
     &-icon{
         @include position(absolute, $top:50%, $left: 10px);
@@ -41,6 +46,14 @@ header{
         @extend %rounded-profile;
     }
 
+    &-detail{
+        letter-spacing: 1.2px;
+        & i{
+            font-size: fs("fs-12");
+            @extend %pointer-event;
+        }
+    }
+
     &-detail:hover{
         color: color("gray");
     }
@@ -74,6 +87,11 @@ header{
         text-transform: uppercase;
     }
 
+    &-item{
+        & > * {
+            @extend %pointer-event;
+        }
+    }
     &-item:hover{
         color: color("primary-color");
     }
