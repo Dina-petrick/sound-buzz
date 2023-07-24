@@ -6,11 +6,6 @@ header{
     flex-basis: 20%;
 }
 
-
-%pointer-event{
-    pointer-events: none;
-}
-
 .search-bar{
     &-icon{
         @include position(absolute, $top:50%, $left: 10px);
@@ -32,29 +27,12 @@ header{
     @extend %scroll-vertical;
 }
 
-
-%rounded-profile{
-    width: 74px;
-    height: 74px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
 .user-profile{
-    height: 120px;
     &-picture{
-        @extend %rounded-profile;
+        @include rounded-image($w: 74px, $h: 74px);
     }
 
-    &-detail{
-        letter-spacing: 1.2px;
-        & i{
-            font-size: fs("fs-12");
-            @extend %pointer-event;
-        }
-    }
-
-    &-detail:hover{
+    &-update-btn:hover{
         color: color("gray");
     }
 
@@ -62,7 +40,6 @@ header{
         line-height: 1.1;
     }
 }
-
 
 .profile-stats{
     &-item{
@@ -87,24 +64,17 @@ header{
         text-transform: uppercase;
     }
 
-    &-item{
-        & > * {
-            @extend %pointer-event;
-        }
-    }
     &-item:hover{
         color: color("primary-color");
     }
 }
 
 .profile-modal{
-    display: none;
     @include position(fixed);
     inset: 0;
     z-index: 20;
     background-color: rgba(0, 0, 0, 0.462);
 }
-
 
 .upload-profile{
     @include position(absolute, $top:50%, $left:50%);
@@ -114,7 +84,6 @@ header{
     @include flex( $direction: column);
     gap: size(36);
     background-color: #fffcfcf5;
-    padding: size(36);
 
     &-pic-wrap{
         @include flex($ai: flex-end);
@@ -122,8 +91,7 @@ header{
     }
 
     &-pic{
-       @extend %rounded-profile;
-       margin-right: size(16);
+        @include rounded-image($w: 74px, $h: 74px);
     }
 
     &-pic-btn{
@@ -142,17 +110,8 @@ header{
         }
     }
 
-    &-pic-input{
-        display: none;
-    }
-
-    &-name-label{
-        font-weight: fw("700");
-    }
-
     &-name-input{
         border: none;
-        margin-left: size(16);
         border-radius: 4px;
         padding: 4px 12px;
 
@@ -166,7 +125,6 @@ header{
         color: color("white");
         border: 1px solid transparent;
         border-radius: size(8);
-        margin-right: size(16);
 
         &:hover{
             border: 1px solid color("secondary-color");
