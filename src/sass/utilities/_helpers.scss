@@ -80,6 +80,11 @@ $align-value: flex-start, flex-end, center;
 }
 
 
+.pointer-event-none{
+    pointer-events: none;
+}
+
+
 // margin, padding and gap
 
 .mx-auto{
