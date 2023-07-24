@@ -30,23 +30,23 @@
                     <img class="user-profile-picture mx-auto" id="user-profile-picture" src="https://images.unsplash.com/photo-1687360440984-3a0d7cfde903?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
                     alt="user-profile-picture">
                     <span class="user-profile-name block fs-20 fw-500" id="user-profile-name">Daniel Haribo</span>
-                    <button class="block fs-14 user-profile-detail text-primary-color mx-auto" id="profile-update-btn">Update Profile <i class="fa-solid fa-plus"></i></button>
+                    <button class="block fs-14 user-profile-update-btn text-primary-color mx-auto" id="profile-update-btn">Update Profile <i class="fa-solid fa-plus fs-12 pointer-event-none"></i></button>
                 </div>
-                <div class="profile-modal" id="profile-modal">
-                    <div class="upload-profile" id="upload-profile">
+                <div class="profile-modal hidden" id="profile-modal">
+                    <div class="upload-profile p-36" id="upload-profile">
                         <div class="upload-profile-pic-wrap" id="upload-profile-pic-wrap">
-                            <img class="upload-profile-pic" id="upload-profile-pic" src="https://images.unsplash.com/photo-1687360440984-3a0d7cfde903?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+                            <img class="upload-profile-pic mr-16" id="upload-profile-pic" src="https://images.unsplash.com/photo-1687360440984-3a0d7cfde903?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
                             alt="user-profile-picture">
                             <label for="upload-profile-pic-input" class="upload-profile-pic-btn">Upload</label>
-                            <input type="file" id="upload-profile-pic-input" class="upload-profile-pic-input">
+                            <input type="file" id="upload-profile-pic-input" class="upload-profile-pic-input hidden">
                         </div>
                         <div class="upload-profile-name-info">
-                            <label for="upload-profile-name" class="upload-profile-name-label">User Name</label>
-                            <input type="text" id="upload-profile-name" class="upload-profile-name-input">
+                            <label for="upload-profile-name" class="upload-profile-name-label fw-700">User Name</label>
+                            <input type="text" id="upload-profile-name" class="upload-profile-name-input ml-16">
                         </div>
                         <div class="upload-profile-btn-wrap">
-                            <button class="upload-profile-btn" id="save-profile-btn">Save</button>
-                            <button class="upload-profile-btn" id="cancel-profile-btn">Cancel</button>
+                            <button class="upload-profile-btn mr-16" id="save-profile-btn">Save</button>
+                            <button class="upload-profile-btn mr-16" id="cancel-profile-btn">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -70,13 +70,13 @@
                     <h3 class="soundbuzz-title text-primary-color fw-600 fs-18">Soundbuzz music</h3>
                     <ul class="text-light-gray">
                         <li class="mt-12 soundbuzz-item" id="library-list">
-                            <button><i class="fa-solid fa-music mr-8 fs-14"></i>Library</button>
+                            <button class="pointer-event-none"><i class="fa-solid fa-music mr-8 fs-14 pointer-event-none"></i>Library</button>
                         </li>
                         <li class="mt-12 soundbuzz-item" id="playlist-list">
-                            <button><i class="fa-regular fa-bookmark mr-8 fs-14"></i>Playlists</button>
+                            <button class="pointer-event-none"><i class="fa-regular fa-bookmark mr-8 fs-14 pointer-event-none"></i>Playlists</button>
                         </li>
                         <li class="mt-12 soundbuzz-item" id="artist-list">
-                            <button><i class="fa-regular fa-user mr-8 fs-14"></i>Artist</button>
+                            <button class="pointer-event-none"><i class="fa-regular fa-user mr-8 fs-14 pointer-event-none"></i>Artist</button>
                         </li>
                     </ul>
                 </div>
@@ -85,10 +85,10 @@
                     <h3 class="soundbuzz-title text-primary-color fw-600 fs-18">Soundbuzz studio</h3>
                     <ul class="text-light-gray">
                         <li class="mt-12 soundbuzz-item" id="favorites-list">
-                            <button><i class="fa-regular fa-heart mr-8 fs-14"></i>Favorites</button>
+                            <button class="pointer-event-none"><i class="fa-regular fa-heart mr-8 fs-14 pointer-event-none"></i>Favorites</button>
                         </li>
                         <li class="mt-12 soundbuzz-item" id="album-list">
-                            <button><i class="fa-solid fa-compact-disc mr-8 fs-14"></i>Album</button>
+                            <button class="pointer-event-none"><i class="fa-solid fa-compact-disc mr-8 fs-14 pointer-event-none"></i>Album</button>
                         </li>
                     </ul>
                 </div>
@@ -98,14 +98,14 @@
         <main >
             <div class="main-container" id="main-container">
                 <div class="homepage-container" id="homepage-container">
-                    <div class="artist-card pl-24">
-                        <h3 class="fs-50 fw-700 text-white pt-24 pl-24" id="artist-card-greet">Hello Daniel Haribo!</h3>
+                    <div class="artist-card pl-24" id="artist-card-list">
+                        <h3 class="fs-50 fw-700 text-white pt-24 pl-24" id="artist-card-heading">Hello Daniel Haribo!</h3>
                         <p class="fs-25 fw-500  text-white pt-12 pl-24">Talent of the moment</p>
-                        <ul class="artist-card-list" id="artist-card-list"></ul>
+                        <ul class="artist-card-list pb-10 mt-24" id="artist-card-list"></ul>
                     </div>
     
                     <div class="playlist-card pl-24">
-                        <h3 class="fs-25 fw-700">Playlists for Daniel</h3>
+                        <h3 class="fs-25 fw-700" id="playlist-card-heading">Playlists for Daniel</h3>
                         <ul class="playlist-card-list"></ul>
                     </div>
     
@@ -116,7 +116,7 @@
     
                     <div class="artist ml-24 mt-24">
                         <h3 class="fs-25 fw-700">Artistes</h3>
-                        <ul class="artist-list">
+                        <ul class="artist-list pb-24">
                         </ul>
                     </div>
                 </div>
@@ -126,29 +126,28 @@
                 </div>
             </div>
 
-            <div class="music-player">
-                <div class="music-player-artist">
-                    <img class="music-player-artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                    <div class="music-playlist-details">
-                        <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                        <span class="block fs-14 fw-500">Mutate</span>
-                        <small class="fs-14">4.54</small>
+            <div class="music-player" id="music-player">
+                <div class="music-player-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                  </div>
+                  <div class="music-player-artist">
+                    <img class="music-player-artist-img" alt="artist">
+                    <div class="music-player-details">
+                      <h3 class="music-player-song-title"></h3>
+                      <span class="music-player-artist-name"></span>
                     </div>
-                </div>
-                <ul class="music-player-controls">
-                    <li><i class="fa-solid fa-repeat"></i></li>
-                    <li><i class="fa-solid fa-backward-step"></i></li>
-                    <li><i class="fa-solid fa-play"></i></li>
-                    <li><i class="fa-solid fa-forward-step"></i></li>
-                    <li><i class="fa-solid fa-shuffle"></i></li>
-                </ul>
-                <ul class="music-player-sound-control">
-                    <li><i class="fa-solid fa-volume-xmark"></i></li>
-                    <li><input type="range" class="music-player-control-range"></li>
-                    <li><i class="fa-solid fa-volume-high"></i></li>
-                </ul>
-                <i class="fa-solid fa-ellipsis-vertical music-player-setting"></i>
-
+                  </div>
+                  <ul class="music-player-controls">
+                    <li><i class="fa-solid fa-backward-step" id="previous-button"></i></li>
+                    <li><i class="fa-solid fa-play music-player-play-button play-button" id="play-button"></i></li>
+                    <li><i class="fa-solid fa-forward-step" id="next-button"></i></li>
+                  </ul>
+                  <ul class="music-player-sound-control">
+                  <li><i class="fa-solid fa-volume-xmark"></i></li>
+                  <li><input type="range" class="music-player-control-range" id="volume-range" min="0" max="100" value="100"></li>
+                  <li><i class="fa-solid fa-volume-high"></i></li>
+                  </ul>
+                  <i class="fa-solid fa-ellipsis-vertical music-player-setting"></i>
             </div>
         </main>
     </div>
