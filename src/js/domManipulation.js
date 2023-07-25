@@ -246,20 +246,21 @@ export const updateMusicPlayerDetail = (index) => {
 const loadAndPlaySong = () => {
   const currentSong = musicData[currentSongIndex];
   audio.src = currentSong.audioSrc;
-
-  if (isPlaying) {
-    audio.currentTime = parseFloat(songProgress);
-    audio.play();
-  } else {
-    audio.play();
-    isPlaying = true;
-    playBtn.classList.remove('fa-play');
-    playBtn.classList.add('fa-pause');
-    updateProgressBar();
-  }
-
-  updateMusicPlayerDetail(currentSongIndex);
+  audio.currentTime = parseFloat(songProgress);
+  audio.play()
+    .then(() => {
+      isPlaying = true;
+      playBtn.classList.remove('fa-play');
+      playBtn.classList.add('fa-pause');
+      updateProgressBar();
+      updatePlaylistCardIcons();
+      updateMusicPlayerDetail(currentSongIndex);
+    })
+    .catch((error) => {
+      console.error('Error playing audio:', error);
+    });
 };
+
 
 export const pauseSong = () => {
   audio.pause();
@@ -294,6 +295,8 @@ export const updateProgressBar = () => {
   localStorage.setItem('musicPlayerData', JSON.stringify({ currentSongIndex, songProgress }));
 };
 
+
+
 export const formatTime = (timeInSeconds) => {
   const minutes = Math.floor(timeInSeconds / 60);
   const seconds = Math.floor(timeInSeconds % 60);
@@ -307,15 +310,15 @@ export const handleVolumeChange = () => {
 
 export const playPreviousSong = () => {
   currentSongIndex = currentSongIndex <= 0 ? musicData.length - 1 : currentSongIndex - 1;
-  loadAndPlaySong();
   songProgress = 0;
+  loadAndPlaySong();
   localStorage.setItem('musicPlayerData', JSON.stringify({ currentSongIndex, songProgress: audio.currentTime }));
 };
 
 export const playNextSong = () => {
   currentSongIndex = (currentSongIndex + 1) % musicData.length;
-  loadAndPlaySong();
   songProgress = 0;
+  loadAndPlaySong();
   localStorage.setItem('musicPlayerData', JSON.stringify({ currentSongIndex, songProgress: audio.currentTime }));
 };
 
@@ -344,6 +347,7 @@ export const checkCurrentSong = (index) => {
         togglePlay();
       } else {
         currentSongIndex = parseInt(index);
+        songProgress = 0;
         loadAndPlaySong();
       }
 }
