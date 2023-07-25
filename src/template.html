@@ -111,7 +111,7 @@
     
                     <div class="recent-playlist mt-24 ml-24">
                         <h3 class="fs-25 fw-700">Recent Playlist</h3>
-                        <ul class="recent-playlist-list mt-24"></ul>
+                        <ul class="recent-playlist-list mt-24" id="recent-playlist-list"></ul>
                     </div>
     
                     <div class="artist ml-24 mt-24">
@@ -127,7 +127,8 @@
             </div>
 
             <div class="music-player" id="music-player">
-                <div class="music-player-progress">
+                <audio id="audio-player"></audio>
+                <div class="music-player-progress" id="music-player-progress">
                     <div class="progress-bar" id="progress-bar"></div>
                   </div>
                   <div class="music-player-artist">
@@ -135,6 +136,9 @@
                     <div class="music-player-details">
                       <h3 class="music-player-song-title"></h3>
                       <span class="music-player-artist-name"></span>
+                      <p class="music-player-time">
+                        <span id="music-player-current-time" class="music-player-current-time">0:00</span> / <span id="music-player-duration" class="music-player-duration">0:00</span>
+                      </p>
                     </div>
                   </div>
                   <ul class="music-player-controls">
