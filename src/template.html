@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,41 +25,58 @@
                 <input class="search-bar-input pl-32 pr-12 py-8 bg-white" type="text" placeholder="Explorer">
             </div>
 
-            <aside class="sidebar pb-24">
-                <div class="user-profile text-center mt-12">
-                    <img class="user-profile-picture mx-auto" src="./assets/images/profile-picture.jpg"
-                        alt="user-profile-picture">
-                    <span class="user-profile-name block fs-20 fw-500">Daniel Harbin</span>
-                    <a href="javasript:void(0)" class="block fs-14 user-profile-detail text-primary-color">My Profile <i
-                            class="fa-solid fa-angle-down fs-12"></i></a>
+            <aside class="sidebar pb-24" id="sidebar">
+                <div class="user-profile text-center mt-12" id="user-profile">
+                    <img class="user-profile-picture mx-auto" id="user-profile-picture" src="https://images.unsplash.com/photo-1687360440984-3a0d7cfde903?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+                    alt="user-profile-picture">
+                    <span class="user-profile-name block fs-20 fw-500" id="user-profile-name">Daniel Haribo</span>
+                    <button class="block fs-14 user-profile-update-btn text-primary-color mx-auto" id="profile-update-btn">Update Profile <i class="fa-solid fa-plus fs-12 pointer-event-none"></i></button>
+                </div>
+                <div class="profile-modal hidden" id="profile-modal">
+                    <div class="upload-profile p-36" id="upload-profile">
+                        <div class="upload-profile-pic-wrap" id="upload-profile-pic-wrap">
+                            <img class="upload-profile-pic mr-16" id="upload-profile-pic" src="https://images.unsplash.com/photo-1687360440984-3a0d7cfde903?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+                            alt="user-profile-picture">
+                            <label for="upload-profile-pic-input" class="upload-profile-pic-btn">Upload</label>
+                            <input type="file" id="upload-profile-pic-input" class="upload-profile-pic-input hidden">
+                        </div>
+                        <div class="upload-profile-name-info">
+                            <label for="upload-profile-name" class="upload-profile-name-label fw-700">User Name</label>
+                            <input type="text" id="upload-profile-name" class="upload-profile-name-input ml-16">
+                        </div>
+                        <div class="upload-profile-btn-wrap">
+                            <button class="upload-profile-btn mr-16" id="save-profile-btn">Save</button>
+                            <button class="upload-profile-btn mr-16" id="cancel-profile-btn">Cancel</button>
+                        </div>
+                    </div>
                 </div>
                 <ul class="user-profile-stats mt-24 d-flex text-center">
                     <li class="profile-stats-item">
                         <span class="lh-1.2 block profile-stats-count">535</span>
-                        <a href="javasript:void(0)" class="profile-stats-label text-primary-color fs-14">views</a>
+                        <button class="profile-stats-label text-primary-color fs-14">views</button>
                     </li>
                     <li class="profile-stats-item">
 
                         <span class="lh-1.2 block profile-stats-count">335</span>
-                        <a href="javasript:void(0)" class="profile-stats-label text-primary-color fs-14">likes</a>
+                        <button class="profile-stats-label text-primary-color fs-14">likes</button>
                     </li>
                     <li class="profile-stats-item">
                         <span class="lh-1.2 block profile-stats-count">200</span>
-                        <a href="javasript:void(0)" class="profile-stats-label text-primary-color fs-14">shares</a>
+                        <button class="profile-stats-label text-primary-color fs-14">shares</button>
                     </li>
                 </ul>
 
                 <div class="mt-24">
                     <h3 class="soundbuzz-title text-primary-color fw-600 fs-18">Soundbuzz music</h3>
                     <ul class="text-light-gray">
-                        <li class="mt-12 soundbuzz-item">
-                            <a href="javasript:void(0)"><i class="fa-solid fa-music mr-8 fs-14"></i>Library</a>
+                        <li class="mt-12 soundbuzz-item" id="library-list">
+                            <button class="pointer-event-none"><i class="fa-solid fa-music mr-8 fs-14 pointer-event-none"></i>Library</button>
                         </li>
-                        <li class="mt-12 soundbuzz-item">
-                            <a href="javasript:void(0)"><i class="fa-regular fa-bookmark mr-8 fs-14"></i>Playlists</a>
+                        <li class="mt-12 soundbuzz-item" id="playlist-list">
+                            <button class="pointer-event-none"><i class="fa-regular fa-bookmark mr-8 fs-14 pointer-event-none"></i>Playlists</button>
                         </li>
-                        <li class="mt-12 soundbuzz-item">
-                            <a href="javasript:void(0)"><i class="fa-regular fa-user mr-8 fs-14"></i>Artist</a>
+                        <li class="mt-12 soundbuzz-item" id="artist-list">
+                            <button class="pointer-event-none"><i class="fa-regular fa-user mr-8 fs-14 pointer-event-none"></i>Artist</button>
                         </li>
                     </ul>
                 </div>
@@ -68,584 +84,79 @@
                 <div class="mt-24">
                     <h3 class="soundbuzz-title text-primary-color fw-600 fs-18">Soundbuzz studio</h3>
                     <ul class="text-light-gray">
-                        <li class="mt-12 soundbuzz-item">
-                            <a href="javasript:void(0)"><i class="fa-regular fa-heart mr-8 fs-14"></i>Favorites</a>
+                        <li class="mt-12 soundbuzz-item" id="favorites-list">
+                            <button class="pointer-event-none"><i class="fa-regular fa-heart mr-8 fs-14 pointer-event-none"></i>Favorites</button>
                         </li>
-                        <li class="mt-12 soundbuzz-item">
-                            <a href="javasript:void(0)"><i class="fa-solid fa-compact-disc mr-8 fs-14"></i>Album</a>
+                        <li class="mt-12 soundbuzz-item" id="album-list">
+                            <button class="pointer-event-none"><i class="fa-solid fa-compact-disc mr-8 fs-14 pointer-event-none"></i>Album</button>
                         </li>
                     </ul>
                 </div>
             </aside>
         </header>
 
-        <main>
-            <div class="main-container">
-                <div class="artist-card pl-24">
-                    <h3 class="fs-50 fw-700 text-white pt-24 pl-24">Hello Daniel Haribo!</h3>
-                    <p class="fs-25 fw-500  text-white pt-12 pl-24">Talent of the moment</p>
-                    <ul class="artist-card-list" id="artist-card-list">
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-
-                        <li class="artist-card-item">
-                            <div class="artist-card-info">
-                                <img class="artist-card-img" src="./assets/images/artist1.jpg" alt="artist">
-                                <div class="artist-card-details">
-                                    <h4 class="fw-600 fs-20">Jeanne Added</h4>
-                                    <small class="fw-400 fs-14">Mutate</small>
-                                </div>
-                                <span class="artist-card-stats">1<small>st</small></span>
-                                <i class="fa-solid fa-star artist-card-star-btn"></i>
-                            </div>
-                            <div class="artist-card-heart-wrap">
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                                <span class="artist-card-heart"><i class="fa-regular fa-heart"></i></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="playlist-card pl-24">
-                    <h3 class="fs-25 fw-700">Playlists for Daniel</h3>
-                    <ul class="playlist-card-list">
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="playlist-card-item">
-                            <img class="playlist-card-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <span class="playlist-card-overlay"></span>
-                            <div class="playlist-card-info">
-                                <div class="playlist-card-title">Mix Zen</div>
-                                <span class="playlist-card-play-icon"><i class="fa-solid fa-play"></i></span>
-                                <div class="playlist-card-detail">
-                                    <h4 class="playlist-card-detail-heading">Mix Play</h4>
-                                    <p class="playlist-card-detail-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, repellat.</p>
-                                </div>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                </div>
-
-                <div class="recent-playlist mt-24 ml-24">
-                    <h3 class="fs-25 fw-700">Recent Playlist</h3>
-                    <ul class="recent-playlist-list mt-24">
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="recent-playlist-item">
-                            <img class="recent-playlist-img" src="./assets/images/playlist1.jpg" alt="artist">
-                            <div class="recent-playlist-details">
-                                <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                                <span class="block fs-14 fw-500">Mutate</span>
-                                <small class="fs-14">SoundaRecords . 2018</small>
-                            </div>
-                            <div class="recent-playlist-controls">
-                                <small>4.54</small>
-                                <span class="recent-playlist-play-btn">
-                                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
-                                </span>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="artist ml-24 mt-24">
-                    <h3 class="fs-25 fw-700">Artistes</h3>
-                    <ul class="artist-list">
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                        <li class="artist-item">
-                            <img class="artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                            <span class="artist-name">Lil Wayne</span>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="music-player">
-                    <div class="music-player-artist">
-                        <img class="music-player-artist-img" src="./assets/images/artist1.jpg" alt="artist">
-                        <div class="music-playlist-details">
-                            <h3 class="fs-18 fw-500">Jeanne Added</h3>
-                            <span class="block fs-14 fw-500">Mutate</span>
-                            <small class="fs-14">4.54</small>
-                        </div>
+        <main >
+            <div class="main-container" id="main-container">
+                <div class="homepage-container" id="homepage-container">
+                    <div class="artist-card pl-24" id="artist-card-list">
+                        <h3 class="fs-50 fw-700 text-white pt-24 pl-24" id="artist-card-heading">Hello Daniel Haribo!</h3>
+                        <p class="fs-25 fw-500  text-white pt-12 pl-24">Talent of the moment</p>
+                        <ul class="artist-card-list pb-10 mt-24" id="artist-card-list"></ul>
                     </div>
-                    <ul class="music-player-controls">
-                        <li><i class="fa-solid fa-repeat"></i></li>
-                        <li><i class="fa-solid fa-backward-step"></i></li>
-                        <li><i class="fa-solid fa-play"></i></li>
-                        <li><i class="fa-solid fa-forward-step"></i></li>
-                        <li><i class="fa-solid fa-shuffle"></i></li>
-                    </ul>
-                    <ul class="music-player-sound-control">
-                        <li><i class="fa-solid fa-volume-xmark"></i></li>
-                        <li><input type="range" class="music-player-control-range"></li>
-                        <li><i class="fa-solid fa-volume-high"></i></li>
-                    </ul>
-                    <i class="fa-solid fa-ellipsis-vertical music-player-setting"></i>
-
+    
+                    <div class="playlist-card pl-24">
+                        <h3 class="fs-25 fw-700" id="playlist-card-heading">Playlists for Daniel</h3>
+                        <ul class="playlist-card-list"></ul>
+                    </div>
+    
+                    <div class="recent-playlist mt-24 ml-24">
+                        <h3 class="fs-25 fw-700">Recent Playlist</h3>
+                        <ul class="recent-playlist-list mt-24" id="recent-playlist-list"></ul>
+                    </div>
+    
+                    <div class="artist ml-24 mt-24">
+                        <h3 class="fs-25 fw-700">Artistes</h3>
+                        <ul class="artist-list pb-24">
+                        </ul>
+                    </div>
                 </div>
+                <div class="favorite-container hidden" id="favorite-container">
+                    <h3 class="favorite-title">Favorites</h3>
+                    <ul class="favorite-list" id="favorite-list"></ul>
+                </div>
+            </div>
+
+            <div class="music-player" id="music-player">
+                <audio id="audio-player"></audio>
+                <div class="music-player-progress" id="music-player-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                  </div>
+                  <div class="music-player-artist">
+                    <img class="music-player-artist-img" alt="artist">
+                    <div class="music-player-details">
+                      <h3 class="music-player-song-title"></h3>
+                      <span class="music-player-artist-name"></span>
+                      <p class="music-player-time">
+                        <span id="music-player-current-time" class="music-player-current-time">0:00</span> / <span id="music-player-duration" class="music-player-duration">0:00</span>
+                      </p>
+                    </div>
+                  </div>
+                  <ul class="music-player-controls">
+                    <li><i class="fa-solid fa-backward-step" id="previous-button"></i></li>
+                    <li><i class="fa-solid fa-play music-player-play-button play-button" id="play-button"></i></li>
+                    <li><i class="fa-solid fa-forward-step" id="next-button"></i></li>
+                  </ul>
+                  <ul class="music-player-sound-control">
+                  <li><i class="fa-solid fa-volume-xmark"></i></li>
+                  <li><input type="range" class="music-player-control-range" id="volume-range" min="0" max="100" value="100"></li>
+                  <li><i class="fa-solid fa-volume-high"></i></li>
+                  </ul>
+                  <i class="fa-solid fa-ellipsis-vertical music-player-setting"></i>
             </div>
         </main>
     </div>
 </body>
 
 </html>
+
+

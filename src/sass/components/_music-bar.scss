@@ -6,12 +6,28 @@
     @include position(absolute, $bottom: 16px);
     z-index: 10;
     @include flex($jc: space-between, $ai: center);
-    padding: 16px 24px;
+    padding-block: 16px;
+    padding-inline: 24px;
     background-color: color("white");
-    border-top: 2px solid color("primary-color");
+
+
+    &-progress {
+        width: 100%;
+        height: 4px;
+        background-color: color("primary-color"); 
+        @include position(absolute, $top: 0);
+        overflow: hidden;
+    
+        .progress-bar {
+          height: 100%;
+          width: 0;
+          background-color: color("secondary-color");
+        }
+    }
 
     &-artist {
         @include flex($ai: center);
+        width: 300px;
         gap: size(12);
         line-height: 1;
 
@@ -30,14 +46,15 @@
 
     &-controls {
         @include flex;
-        gap: 20px;
+        gap: size(24);
+        font-size: fs("fs-20");
         @extend %cursor;
     }
 
     &-sound-control {
         @include flex;
         @extend %cursor;
-
+        font-size: fs("fs-20");
     }
     &-setting{
         @extend %cursor;
@@ -49,4 +66,3 @@
 
 
 }
-

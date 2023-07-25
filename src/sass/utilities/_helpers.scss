@@ -15,6 +15,10 @@
     display: inline-block;
 }
 
+.hidden{
+    display: none;
+}
+
 //flex 
 
 $justify-value: flex-start, flex-end, center, space-between, space-around;
@@ -73,6 +77,11 @@ $align-value: flex-start, flex-end, center;
     .bg-#{$color}{
             background-color: $value;
         }
+}
+
+
+.pointer-event-none{
+    pointer-events: none;
 }
 
 

@@ -12,3 +12,11 @@
     bottom: $bottom;
     left: $left;
 }
+
+
+@mixin rounded-image($w: null, $h: null){
+    width: $w;
+    height: $h;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -13,6 +13,7 @@ header{
     }
 
     &-input{
+        width: 100%;
         border: none;
         border-radius: 4px;
 
@@ -29,13 +30,10 @@ header{
 
 .user-profile{
     &-picture{
-        width: 74px;
-        height: 74px;
-        border-radius: 50%;
-        object-fit: cover;
+        @include rounded-image($w: 74px, $h: 74px);
     }
 
-    &-detail:hover{
+    &-update-btn:hover{
         color: color("gray");
     }
 
@@ -43,7 +41,6 @@ header{
         line-height: 1.1;
     }
 }
-
 
 .profile-stats{
     &-item{
@@ -72,3 +69,69 @@ header{
         color: color("primary-color");
     }
 }
+
+.profile-modal{
+    @include position(fixed);
+    inset: 0;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.462);
+}
+
+.upload-profile{
+    @include position(absolute, $top:50%, $left:50%);
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    @include flex( $direction: column);
+    gap: size(36);
+    background-color: #fffcfcf5;
+
+    &-pic-wrap{
+        @include flex($ai: flex-end);
+        gap: size(8);
+    }
+
+    &-pic{
+        @include rounded-image($w: 74px, $h: 74px);
+    }
+
+    &-pic-btn{
+        display: inline-block;
+        cursor: pointer;
+        padding: 4px 18px;
+        background-color: color("primary-color");
+        color: color("white");
+        border: 1px solid transparent;
+        border-radius: size(8);
+
+        &:hover{
+            border: 1px solid color("secondary-color");
+            background-color: color("white");
+            color: color("secondary-color");
+        }
+    }
+
+    &-name-input{
+        border: none;
+        border-radius: 4px;
+        padding: 4px 12px;
+
+        &:focus{
+            outline: 2px solid color("primary-color");
+        }
+    }
+
+    &-btn{
+        background-color: color("primary-color");
+        color: color("white");
+        border: 1px solid transparent;
+        border-radius: size(8);
+
+        &:hover{
+            border: 1px solid color("secondary-color");
+            background-color: color("white");
+            color: color("secondary-color");
+        }
+    }
+}
+
