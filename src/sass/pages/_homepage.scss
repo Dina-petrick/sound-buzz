@@ -34,11 +34,12 @@ main {
 }
 
 .artist {
-    text-transform: uppercase;
 
     &-list {
+        text-transform: uppercase;
         @extend %scroll-horizontal;
         white-space: nowrap;
+        margin-top: size(36);
     }
 
     &-item {
@@ -111,11 +112,14 @@ main {
     }
 
     &-artist{
+        text-transform: capitalize;
         position: absolute;
         top: 20px;
         left: 20px;
         font-size: fs("fs-25");
-        text-transform: capitalize;
         color: color("white");
+
+        &-item{
+        }
     }
 }
