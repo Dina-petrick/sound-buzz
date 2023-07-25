@@ -68,9 +68,10 @@ const createPlaylistCard = (dataList) => {
 }
 
 const createRecentPlaylistItem = (dataList) => {
-    dataList.forEach((data) => {
+    dataList.forEach((data, index) => {
         const recentPlaylistItem = document.createElement("li");
         recentPlaylistItem.className = "recent-playlist-item";
+        recentPlaylistItem.setAttribute("data-song-index", index)
         recentPlaylistItem.innerHTML = `
             <img class="recent-playlist-img" src="${data.artistImage}" alt="artist">
             <div class="recent-playlist-details">
@@ -80,7 +81,7 @@ const createRecentPlaylistItem = (dataList) => {
             </div>
             <div class="recent-playlist-controls">
                 <span class="recent-playlist-play-btn">
-                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color"></i>
+                    <i class="fa-solid fa-play recent-playlist-play-icon text-primary-color pointer-event-none"></i>
                 </span>
             </div>
         `
@@ -219,16 +220,133 @@ displayFavArtist(dataFetched);
 
 
 
-let musicPlayerArtistImage = document.querySelector(".music-player-artist-img");
-let musicPlayerArtistTitle = document.querySelector(".music-player-song-title");
-let musicPlayerArtistName = document.querySelector(".music-player-artist-name");
 
 
-export let updateMusicPlayerDetail = (index) => {
-  musicPlayerArtistImage.src = dataFetched.musicData[index].artistImage;
-  musicPlayerArtistTitle.textContent = dataFetched.musicData[index].title;
-  musicPlayerArtistName.textContent = dataFetched.musicData[index].artist;
+
+const playBtn = document.getElementById('play-button');
+const audio = document.getElementById('audio-player');
+const volumeRange = document.getElementById('volume-range');
+const progress = document.getElementById('progress-bar');
+
+let isPlaying = false;
+let musicData = dataFetched.musicData;
+let { currentSongIndex, songProgress } = JSON.parse(localStorage.getItem('musicPlayerData')) || { currentSongIndex: 0, songProgress: 0 };
+
+
+const musicPlayerArtistImage = document.querySelector('.music-player-artist-img');
+const musicPlayerArtistTitle = document.querySelector('.music-player-song-title');
+const musicPlayerArtistName = document.querySelector('.music-player-artist-name');
+
+export const updateMusicPlayerDetail = (index) => {
+    musicPlayerArtistImage.src = musicData[index].artistImage;
+    musicPlayerArtistTitle.textContent = musicData[index].title;
+    musicPlayerArtistName.textContent = musicData[index].artist;
+};
+
+const loadAndPlaySong = () => {
+  const currentSong = musicData[currentSongIndex];
+  audio.src = currentSong.audioSrc;
+
+  if (isPlaying) {
+    audio.currentTime = parseFloat(songProgress);
+    audio.play();
+  } else {
+    audio.play();
+    isPlaying = true;
+    playBtn.classList.remove('fa-play');
+    playBtn.classList.add('fa-pause');
+    updateProgressBar();
+  }
+
+  updateMusicPlayerDetail(currentSongIndex);
+};
+
+export const pauseSong = () => {
+  audio.pause();
+  isPlaying = false;
+  playBtn.classList.remove('fa-pause');
+  playBtn.classList.add('fa-play');
+  localStorage.setItem('musicPlayerData', JSON.stringify({ currentSongIndex, songProgress: audio.currentTime }));
+};
+
+export const togglePlay = () => {
+  const currentSong = musicData[currentSongIndex];
+
+  if (isPlaying && audio.src === currentSong.audioSrc) {
+    pauseSong();
+  } else {
+    loadAndPlaySong();
+  }
+
+  updatePlaylistCardIcons();
+};
+
+export const updateProgressBar = () => {
+  const progressPercent = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = `${progressPercent}%`;
+
+  const musicPlayerCurrentTime = document.querySelector('.music-player-current-time');
+  const musicPlayerDuration = document.querySelector('.music-player-duration');
+  musicPlayerCurrentTime.textContent = formatTime(audio.currentTime);
+  musicPlayerDuration.textContent = formatTime(audio.duration);
+
+  songProgress = audio.currentTime;
+  localStorage.setItem('musicPlayerData', JSON.stringify({ currentSongIndex, songProgress }));
+};
+
+export const formatTime = (timeInSeconds) => {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = Math.floor(timeInSeconds % 60);
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 };
 
 
-updateMusicPlayerDetail(0);
+export const handleVolumeChange = () => {
+  audio.volume = volumeRange.value / 100;
+};
+
+export const playPreviousSong = () => {
+  currentSongIndex = currentSongIndex <= 0 ? musicData.length - 1 : currentSongIndex - 1;
+  loadAndPlaySong();
+  songProgress = 0;
+  localStorage.setItem('musicPlayerData', JSON.stringify({ currentSongIndex, songProgress: audio.currentTime }));
+};
+
+export const playNextSong = () => {
+  currentSongIndex = (currentSongIndex + 1) % musicData.length;
+  loadAndPlaySong();
+  songProgress = 0;
+  localStorage.setItem('musicPlayerData', JSON.stringify({ currentSongIndex, songProgress: audio.currentTime }));
+};
+
+
+export const updatePlaylistCardIcons = () => {
+  const playlistCardPlayIcons = document.querySelectorAll('.recent-playlist-play-btn i');
+  playlistCardPlayIcons.forEach((icon, index) => {
+    if (index === currentSongIndex) {
+      if (isPlaying) {
+        icon.classList.remove('fa-play');
+        icon.classList.add('fa-pause');
+      } else {
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
+      }
+    } else {
+      icon.classList.remove('fa-pause');
+      icon.classList.add('fa-play');
+    }
+  });
+};
+
+
+export const checkCurrentSong = (index) => {
+    if (parseInt(index) === currentSongIndex) {
+        togglePlay();
+      } else {
+        currentSongIndex = parseInt(index);
+        loadAndPlaySong();
+      }
+}
+
+updateMusicPlayerDetail(currentSongIndex);
+updatePlaylistCardIcons();
