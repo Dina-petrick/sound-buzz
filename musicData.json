@@ -1,0 +1,173 @@
+{
+    "musicData": [
+      {
+        "title": "way to sky",
+        "artist": "justin",
+        "duration": 5.54,
+        "studio": "soundTrack",
+        "year": 2018,
+        "desc": "A mesmerizing journey through the clouds and beyond, accompanied by soaring melodies."
+      },
+      {
+        "title": "ocean breeze",
+        "artist": "sarah",
+        "duration": 3.21,
+        "studio": "blueWave",
+        "year": 2020,
+        "desc": "Gentle waves of harmonies and calming rhythms that transport you to tranquil shores."
+      },
+      {
+        "title": "midnight serenade",
+        "artist": "michael",
+        "duration": 4.12,
+        "studio": "moonlightRecords",
+        "year": 2019,
+        "desc": "A haunting melody that enchants the night with its mysterious and captivating allure."
+      },
+      {
+        "title": "electric dreams",
+        "artist": "emma",
+        "duration": 2.55,
+        "studio": "sparkSounds",
+        "year": 2022,
+        "desc": "An electrifying fusion of pulsating beats and dreamy synths that ignite the imagination."
+      },
+      {
+        "title": "stellar voyage",
+        "artist": "david",
+        "duration": 3.45,
+        "studio": "cosmicBeats",
+        "year": 2021,
+        "desc": "Embark on a cosmic odyssey as celestial melodies guide you through the vast expanse of space."
+      },
+      {
+        "title": "crimson sunset",
+        "artist": "lily",
+        "duration": 4.02,
+        "studio": "sunsetRecords",
+        "year": 2017,
+        "desc": "Witness the breathtaking beauty of a fiery sunset, accompanied by soul-stirring harmonies."
+      },
+      {
+        "title": "whispering winds",
+        "artist": "jackson",
+        "duration": 3.15,
+        "studio": "breezeMelodies",
+        "year": 2023,
+        "desc": "The gentle caress of the wind, carrying melodies that speak directly to the heart."
+      },
+      {
+        "title": "rhythm of life",
+        "artist": "olivia",
+        "duration": 3.50,
+        "studio": "beatBox",
+        "year": 2020,
+        "desc": "A rhythmic celebration of existence, pulsating with energy and joyous vibes."
+      },
+      {
+        "title": "harmony's embrace",
+        "artist": "noah",
+        "duration": 4.29,
+        "studio": "melodyMakers",
+        "year": 2021,
+        "desc": "A harmonious blend of melodies that envelops the soul in a warm and comforting embrace."
+      },
+      {
+        "title": "dreamcatcher",
+        "artist": "ava",
+        "duration": 3.08,
+        "studio": "dreamWorks",
+        "year": 2019,
+        "desc": "Let the enchanting music be your dreamcatcher, capturing moments of whimsy and wonder."
+      },
+      {
+        "title": "sunset romance",
+        "artist": "william",
+        "duration": 2.48,
+        "studio": "eveningTunes",
+        "year": 2022,
+        "desc": "Romantic melodies that paint the sky with shades of gold, igniting passions at twilight."
+      },
+      {
+        "title": "twilight serenade",
+        "artist": "chloe",
+        "duration": 3.37,
+        "studio": "nightfallRecords",
+        "year": 2017,
+        "desc": "As night falls, immerse yourself in a serenade that evokes a sense of ethereal beauty."
+      },
+      {
+        "title": "whispering memories",
+        "artist": "benjamin",
+        "duration": 4.10,
+        "studio": "nostalgiaSounds",
+        "year": 2018,
+        "desc": "Evoke nostalgic memories with whispered melodies that transport you to bygone times."
+      },
+      {
+        "title": "enchanted lullaby",
+        "artist": "harper",
+        "duration": 2.59,
+        "studio": "dreamScape",
+        "year": 2020,
+        "desc": "An enchanting lullaby that cradles you in a world of dreams, soothing your soul."
+      },
+      {
+        "title": "celestial dance",
+        "artist": "leo",
+        "duration": 3.32,
+        "studio": "starryNight",
+        "year": 2021,
+        "desc": "Dance among the stars to celestial melodies that inspire celestial joy and euphoria."
+      },
+      {
+        "title": "sapphire whispers",
+        "artist": "luna",
+        "duration": 3.54,
+        "studio": "crystalRecords",
+        "year": 2019,
+        "desc": "Whispers of sapphire melodies that shimmer with elegance and captivate the soul."
+      },
+      {
+        "title": "melody of the cosmos",
+        "artist": "oliver",
+        "duration": 4.01,
+        "studio": "galaxySounds",
+        "year": 2023,
+        "desc": "Embark on a cosmic journey, guided by the mesmerizing melody of the universe."
+      },
+      {
+        "title": "mystic journey",
+        "artist": "grace",
+        "duration": 3.21,
+        "studio": "enigmaTunes",
+        "year": 2018,
+        "desc": "Embark on a mystic journey through enchanting melodies that unveil hidden secrets."
+      },
+      {
+        "title": "serendipity",
+        "artist": "ethan",
+        "duration": 4.05,
+        "studio": "sereneMelodies",
+        "year": 2017,
+        "desc": "Embrace serendipity with melodies that unexpectedly weave moments of bliss and delight."
+      },
+      {
+        "title": "whimsical dreams",
+        "artist": "mia",
+        "duration": 2.45,
+        "studio": "fantasyRecords",
+        "year": 2022,
+        "desc": "Indulge in whimsical dreams with melodies that ignite imagination and spark joy."
+      },
+      {
+        "title": "eternal echoes",
+        "artist": "henry",
+        "duration": 3.12,
+        "studio": "timelessMelodies",
+        "year": 2023,
+        "desc": "Immerse yourself in the eternal echoes of melodies that transcend time and space."
+      }
+    ]
+  }
+  
